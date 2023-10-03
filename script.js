@@ -1,8 +1,8 @@
 let move_speed = 3, grativy = 0.5;
 let bird = document.querySelector('.bird');
 let img = document.getElementById('bird-1');
-let sound_point = new Audio('sounds/point.mp3');
-let sound_die = new Audio('sounds /die.mp3');
+let sound_point = new Audio('sounds effect/point.mp3');
+let sound_die = new Audio('sounds effect/die.mp3');
 
 // getting bird element properties
 let bird_props = bird.getBoundingClientRect();
@@ -21,7 +21,7 @@ message.classList.add('messageStyle');
 document.addEventListener('keydown', (e) => {
 
     if(e.key == 'Enter' && game_state != 'Play'){
-        document.querySelectorAll('.pipe_sprite').forEach((e) => {
+        document.querySelectorAll('.cloud_sprite').forEach((e) => {
             e.remove();
         });
         img.style.display = 'block';
@@ -39,15 +39,15 @@ function play(){
     function move(){
         if(game_state != 'Play') return;
 
-        let pipe_sprite = document.querySelectorAll('.pipe_sprite');
-        pipe_sprite.forEach((element) => {
-            let pipe_sprite_props = element.getBoundingClientRect();
+        let cloud_sprite = document.querySelectorAll('.cloud_sprite');
+        cloud_sprite.forEach((element) => {
+            let cloud_sprite_props = element.getBoundingClientRect();
             bird_props = bird.getBoundingClientRect();
 
-            if(pipe_sprite_props.right <= 0){
+            if(cloud_sprite_props.right <= 0){
                 element.remove();
             }else{
-                if(bird_props.left < pipe_sprite_props.left + pipe_sprite_props.width && bird_props.left + bird_props.width > pipe_sprite_props.left && bird_props.top < pipe_sprite_props.top + pipe_sprite_props.height && bird_props.top + bird_props.height > pipe_sprite_props.top){
+                if(bird_props.left < cloud_sprite_props.left + cloud_sprite_props.width && bird_props.left + bird_props.width > cloud_sprite_props.left && bird_props.top < cloud_sprite_props.top + cloud_sprite_props.height && bird_props.top + bird_props.height > cloud_sprite_props.top){
                     game_state = 'End';
                     message.innerHTML = 'Game Over'.fontcolor('red') + '<br>Press Enter To Restart';
                     message.classList.add('messageStyle');
@@ -55,11 +55,11 @@ function play(){
                     sound_die.play();
                     return;
                 }else{
-                    if(pipe_sprite_props.right < bird_props.left && pipe_sprite_props.right + move_speed >= bird_props.left && element.increase_score == '1'){
+                    if(cloud_sprite_props.right < bird_props.left && cloud_sprite_props.right + move_speed >= bird_props.left && element.increase_score == '1'){
                         score_val.innerHTML =+ score_val.innerHTML + 1;
                         sound_point.play();
                     }
-                    element.style.left = pipe_sprite_props.left - move_speed + 'px';
+                    element.style.left = cloud_sprite_props.left - move_speed + 'px';
                 }
             }
         });
@@ -73,14 +73,14 @@ function play(){
         bird_dy = bird_dy + grativy;
         document.addEventListener('keydown', (e) => {
             if(e.key == 'ArrowUp' || e.key == ' '){
-                img.src = 'images/Bird-2.png';
+                img.src = 'asstes/images/Bird-2.png';
                 bird_dy = -7.6;
             }
         });
 
         document.addEventListener('keyup', (e) => {
             if(e.key == 'ArrowUp' || e.key == ' '){
-                img.src = 'images/Bird.png';
+                img.src = 'assets/images/Bird.png';
             }
         });
 
@@ -97,33 +97,33 @@ function play(){
     }
     requestAnimationFrame(apply_gravity);
 
-    let pipe_seperation = 0;
+    let cloud_seperation = 0;
 
-    let pipe_gap = 35;
+    let cloud_gap = 35;
 
-    function create_pipe(){
+    function create_cloud(){
         if(game_state != 'Play') return;
 
-        if(pipe_seperation > 115){
-            pipe_seperation = 0;
+        if(cloud_seperation > 115){
+            cloud_seperation = 0;
 
-            let pipe_posi = Math.floor(Math.random() * 43) + 8;
-            let pipe_sprite_inv = document.createElement('div');
-            pipe_sprite_inv.className = 'pipe_sprite';
-            pipe_sprite_inv.style.top = pipe_posi - 70 + 'vh';
-            pipe_sprite_inv.style.left = '100vw';
+            let cloud_posi = Math.floor(Math.random() * 43) + 8;
+            let cloud_sprite_inv = document.createElement('div');
+            cloud_sprite_inv.className = 'cloud_sprite';
+            cloud_sprite_inv.style.top = cloud_posi - 70 + 'vh';
+            cloud_sprite_inv.style.left = '100vw';
 
-            document.body.appendChild(pipe_sprite_inv);
-            let pipe_sprite = document.createElement('div');
-            pipe_sprite.className = 'pipe_sprite';
-            pipe_sprite.style.top = pipe_posi + pipe_gap + 'vh';
-            pipe_sprite.style.left = '100vw';
-            pipe_sprite.increase_score = '1';
+            document.body.appendChild(cloud_sprite_inv);
+            let cloud_sprite = document.createElement('div');
+            cloud_sprite.className = 'cloud_sprite';
+            cloud_sprite.style.top = cloud_posi + cloud_gap + 'vh';
+            cloud_sprite.style.left = '100vw';
+            cloud_sprite.increase_score = '1';
 
-            document.body.appendChild(pipe_sprite);
+            document.body.appendChild(cloud_sprite);
         }
-        pipe_seperation++;
-        requestAnimationFrame(create_pipe);
+        cloud_seperation++;
+        requestAnimationFrame(create_cloud);
     }
-    requestAnimationFrame(create_pipe);
+    requestAnimationFrame(create_cloud);
 }
