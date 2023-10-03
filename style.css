@@ -21,16 +21,34 @@
     left: 30vw;
     z-index: 100;
 }
-.pipe_sprite {
-    /*background-image: url("asstes/images/bird-3.png");*/
+#background-wrap {
+    padding-top: 50px;
+    width:100%;
     position: fixed;
-    top: 40vh;
-    left: 100vw;
-    height: 63vh;
-    border-radius: initial;
-    width: 7vw;
-    background:radial-gradient(#3c84ab 50%, #0b093e);
-    border: 5px solid black;
+    z-index: -1;
+}
+.pipe_sprite {
+    background: #fff;
+    border-radius: 100px;
+    box-shadow: 0 8px 5px rgba(0, 0, 0, 0.1);
+    height: 25vw;
+    position: fixed;
+    width: 270px;
+    /*position: fixed;*/
+    /*top: 40vh;*/
+    /*left: 100vw;*/
+    /*height: 63vh;*/
+    /*border-radius: initial;*/
+    /*width: 7vw;*/
+    /*background-image: url("asstes/images/bird-3.png");*/
+    /*position: fixed;*/
+    /*top: 40vh;*/
+    /*left: 100vw;*/
+    /*height: 63vh;*/
+    /*border-radius: initial;*/
+    /*width: 7vw;*/
+    /*background:radial-gradient(#3c84ab 50%, #0b093e);*/
+    /*border: 5px solid black;*/
 }
 .message {
     position: absolute;
