@@ -7,7 +7,7 @@
 .background {
     height: 100vh;
     width: 100vw;
-    background: url('images/background-img.png') no-repeat center center fixed;
+    background: url('asstes/images/78812fd262025d24e53452a1307bbb6d.png') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -22,12 +22,14 @@
     z-index: 100;
 }
 .pipe_sprite {
+    /*background-image: url("asstes/images/bird-3.png");*/
     position: fixed;
     top: 40vh;
     left: 100vw;
     height: 63vh;
-    width: 6vw;
-    background:radial-gradient(lightgreen 50%, green);
+    border-radius: initial;
+    width: 7vw;
+    background:radial-gradient(#3c84ab 50%, #0b093e);
     border: 5px solid black;
 }
 .message {
@@ -41,10 +43,11 @@
     text-align: center;
 }
 .messageStyle{
-    background: white;
+    background: #5e5d5d;
+    color: #000000;
     padding: 30px;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    border-radius: 5%;
+    box-shadow: rgb(0, 0, 0) 0px 5px 8px;
+    border-radius: 20%;
 }
 .score {
     position: fixed;
