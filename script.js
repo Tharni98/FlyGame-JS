@@ -4,10 +4,10 @@ let img = document.getElementById('bird-1');
 let sound_point = new Audio('asstes/sounds/point.mp3');
 let sound_die = new Audio('asstes/sounds/die.mp3');
 
-// getting bird element properties
+
 let bird_props = bird.getBoundingClientRect();
 
-// This method returns DOMReact -> top, right, bottom, left, x, y, width and height
+
 let background = document.querySelector('.background').getBoundingClientRect();
 
 let score_val = document.querySelector('.score_val');
