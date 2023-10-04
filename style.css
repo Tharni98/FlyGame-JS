@@ -82,8 +82,8 @@
     position: fixed;
     z-index: 10;
     height: 10vh;
-    font-size: 10vh;
-    font-weight: 100;
+    font-size: 5vh;
+    font-weight: 50;
     color: white;
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: black;
