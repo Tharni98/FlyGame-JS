@@ -113,20 +113,20 @@
     color: gold;
     font-weight: bold;
 }
-@media only screen and (max-width: 1080px) {
-    .message{
-        font-size: 50px;
-        top: 50%;
-        white-space: nowrap;
-    }
-    .score{
-        font-size: 8vh;
-    }
-    .bird{
-        width: 120px;
-        height: 90px;
-    }
-    .cloud_sprite{
-        width: 14vw;
-    }
-}
+/*@media only screen and (max-width: 1080px) {*/
+/*    .message{*/
+/*        font-size: 50px;*/
+/*        top: 50%;*/
+/*        white-space: nowrap;*/
+/*    }*/
+/*    .score{*/
+/*        font-size: 8vh;*/
+/*    }*/
+/*    .bird{*/
+/*        width: 120px;*/
+/*        height: 90px;*/
+/*    }*/
+/*    .cloud_sprite{*/
+/*        width: 14vw;*/
+/*    }*/
+/*}*/
