@@ -109,10 +109,10 @@
     margin: 10px;
     font-family: Arial, Helvetica, sans-serif;
 }
-/*.score_val {*/
-/*    color: gold;*/
-/*    font-weight: bold;*/
-/*}*/
+.score_val {
+    color: gold;
+    font-weight: bold;
+}
 /*@media only screen and (max-width: 1080px) {*/
 /*    .message{*/
 /*        font-size: 50px;*/
