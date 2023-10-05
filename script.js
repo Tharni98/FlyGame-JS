@@ -1,11 +1,11 @@
 let move_speed = 3, grativy = 0.5;
-let bird = document.querySelector('.bird');
-let img = document.getElementById('bird-1');
+let jet = document.querySelector('.jet');
+let img = document.getElementById('jet-1');
 let sound_point = new Audio('asstes/sounds/point.mp3');
 let sound_die = new Audio('asstes/sounds/die.mp3');
 
 
-let bird_props = bird.getBoundingClientRect();
+let jet_props = jet.getBoundingClientRect();
 
 
 let background = document.querySelector('.background').getBoundingClientRect();
@@ -25,7 +25,7 @@ document.addEventListener('keydown', (e) => {
             e.remove();
         });
         img.style.display = 'block';
-        bird.style.top = '40vh';
+        jet.style.top = '40vh';
         game_state = 'Play';
         message.innerHTML = '';
         score_title.innerHTML = 'Score : ';
@@ -42,12 +42,12 @@ function play(){
         let cloud_sprite = document.querySelectorAll('.cloud_sprite');
         cloud_sprite.forEach((element) => {
             let cloud_sprite_props = element.getBoundingClientRect();
-            bird_props = bird.getBoundingClientRect();
+            jet_props = jet.getBoundingClientRect();
 
             if(cloud_sprite_props.right <= 0){
                 element.remove();
             }else{
-                if(bird_props.left < cloud_sprite_props.left + cloud_sprite_props.width && bird_props.left + bird_props.width > cloud_sprite_props.left && bird_props.top < cloud_sprite_props.top + cloud_sprite_props.height && bird_props.top + bird_props.height > cloud_sprite_props.top){
+                if(jet_props.left < cloud_sprite_props.left + cloud_sprite_props.width && jet_props.left + jet_props.width > cloud_sprite_props.left && jet_props.top < cloud_sprite_props.top + cloud_sprite_props.height && jet_props.top + jet_props.height > cloud_sprite_props.top){
                     game_state = 'End';
                     message.innerHTML = 'Game Over'.fontcolor('red') + '<br>Press Enter To Restart';
                     message.classList.add('messageStyle');
@@ -55,7 +55,7 @@ function play(){
                     sound_die.play();
                     return;
                 }else{
-                    if(cloud_sprite_props.right < bird_props.left && cloud_sprite_props.right + move_speed >= bird_props.left && element.increase_score == '1'){
+                    if(cloud_sprite_props.right < jet_props.left && cloud_sprite_props.right + move_speed >= jet_props.left && element.increase_score == '1'){
                         score_val.innerHTML =+ score_val.innerHTML + 1;
                         sound_point.play();
                     }
@@ -67,14 +67,14 @@ function play(){
     }
     requestAnimationFrame(move);
 
-    let bird_dy = 0;
+    let jet_dy = 0;
     function apply_gravity(){
         if(game_state != 'Play') return;
-        bird_dy = bird_dy + grativy;
+        jet_dy = jet_dy + grativy;
         document.addEventListener('keydown', (e) => {
             if(e.key == 'ArrowUp' || e.key == ' '){
-                img.src = 'asstes/images/Bird.png';
-                bird_dy = -7.6;
+                img.src = 'asstes/images/jet.png';
+                jet_dy = -7.6;
             }
         });
         //
@@ -84,15 +84,15 @@ function play(){
         //     }
         // });
 
-        if(bird_props.top <= 0 || bird_props.bottom >= background.bottom){
+        if(jet_props.top <= 0 || jet_props.bottom >= background.bottom){
             game_state = 'End';
             message.style.left = '28vw';
             window.location.reload();
             message.classList.remove('messageStyle');
             return;
         }
-        bird.style.top = bird_props.top + bird_dy + 'px';
-        bird_props = bird.getBoundingClientRect();
+        jet.style.top = jet_props.top + jet_dy + 'px';
+        jet_props = jet.getBoundingClientRect();
         requestAnimationFrame(apply_gravity);
     }
     requestAnimationFrame(apply_gravity);
