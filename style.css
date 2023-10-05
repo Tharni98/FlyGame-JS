@@ -78,16 +78,16 @@
     /*background:radial-gradient(#3c84ab 50%, #0b093e);*/
     /*border: 5px solid black;*/
 }
-/*.message {*/
-/*    position: absolute;*/
-/*    z-index: 10;*/
-/*    color: black;*/
-/*    top: 30%;*/
-/*    left: 50%;*/
-/*    font-size: 4em;*/
-/*    transform: translate(-50%, -50%);*/
-/*    text-align: center;*/
-/*}*/
+.message {
+    position: absolute;
+    z-index: 10;
+    color: black;
+    top: 30%;
+    left: 50%;
+    font-size: 4em;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
 /*.messageStyle{*/
 /*    background: #d5d4d4;*/
 /*    color: #000000;*/
