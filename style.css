@@ -82,11 +82,12 @@
     position: absolute;
     z-index: 10;
     color: black;
-    top: 30%;
+    top: 40%;
     left: 50%;
     font-size: 4em;
     transform: translate(-50%, -50%);
     text-align: center;
+    opacity: 60%;
 }
 .messageStyle{
     background: #d5d4d4;
@@ -122,11 +123,11 @@
     .score{
         font-size: 8vh;
     }
-    .bird{
+    .jet{
         width: 120px;
         height: 90px;
     }
-    .cloud_sprite{
+    .meteor_shower{
         width: 14vw;
     }
 }
