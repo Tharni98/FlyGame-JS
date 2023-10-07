@@ -24,7 +24,7 @@ message.classList.add('messageStyle');
 document.addEventListener('keydown', (e) => {
 
     if(e.key == 'Enter' && game_state != 'Play'){
-        document.querySelectorAll('.cloud_sprite').forEach((e) => {
+        document.querySelectorAll('.meteor_shower ').forEach((e) => {
             e.remove();
         });
         img.style.display = 'block';
@@ -42,15 +42,15 @@ function play(){
     function move(){
         if(game_state != 'Play') return;
 
-        let cloud_sprite = document.querySelectorAll('.cloud_sprite');
-        cloud_sprite.forEach((element) => {
-            let cloud_sprite_props = element.getBoundingClientRect();
+        let meteor_shower  = document.querySelectorAll('.meteor_shower ');
+        meteor_shower .forEach((element) => {
+            let meteor_shower_props = element.getBoundingClientRect();
             jet_props = jet.getBoundingClientRect();
 
-            if(cloud_sprite_props.right <= 0){
+            if(meteor_shower_props.right <= 0){
                 element.remove();
             }else{
-                if(jet_props.left < cloud_sprite_props.left + cloud_sprite_props.width && jet_props.left + jet_props.width > cloud_sprite_props.left && jet_props.top < cloud_sprite_props.top + cloud_sprite_props.height && jet_props.top + jet_props.height > cloud_sprite_props.top){
+                if(jet_props.left < meteor_shower_props.left + meteor_shower_props.width && jet_props.left + jet_props.width > meteor_shower_props.left && jet_props.top < meteor_shower_props.top + meteor_shower_props.height && jet_props.top + jet_props.height > meteor_shower_props.top){
                     game_state = 'End';
                     message.innerHTML = 'Game Over'.fontcolor('red') + '<br>Press Enter To Restart';
                     message.classList.add('messageStyle');
@@ -58,11 +58,11 @@ function play(){
                     sound_die.play();
                     return;
                 }else{
-                    if(cloud_sprite_props.right < jet_props.left && cloud_sprite_props.right + move_speed >= jet_props.left && element.increase_score == '1'){
+                    if(meteor_shower_props.right < jet_props.left && meteor_shower_props.right + move_speed >= jet_props.left && element.increase_score == '1'){
                         score_val.innerHTML =+ score_val.innerHTML + 1;
                         sound_point.play();
                     }
-                    element.style.left = cloud_sprite_props.left - move_speed + 'px';
+                    element.style.left = meteor_shower_props.left - move_speed + 'px';
                 }
             }
         });
@@ -94,35 +94,35 @@ function play(){
     }
     requestAnimationFrame(apply_gravity);
 
-    let cloud_seperation = 0;
+    let meteor_shower_seperation = 0;
 
-    let cloud_gap = 35;
+    let meteor_shower_gap = 35;
 
-    function create_cloud(){
+    function create_meteor_shower(){
         if(game_state != 'Play') return;
 
-        if(cloud_seperation > 115){
-            cloud_seperation = 0;
+        if(meteor_shower_seperation > 115){
+            meteor_shower_seperation = 0;
 
-            let cloud_posi = Math.floor(Math.random() * 43) + 8;
-            let cloud_sprite_inv = document.createElement('div');
-            cloud_sprite_inv.className = 'cloud_sprite';
-            cloud_sprite_inv.style.top = cloud_posi - 70 + 'vh';
-            cloud_sprite_inv.style.left = '100vw';
+            let meteor_shower_posi = Math.floor(Math.random() * 43) + 8;
+            let meteor_shower_inv = document.createElement('div');
+            meteor_shower_inv.className = 'meteor_shower';
+            meteor_shower_inv.style.top = meteor_shower_posi - 70 + 'vh';
+            meteor_shower_inv.style.left = '100vw';
 
-            document.body.appendChild(cloud_sprite_inv);
-            let cloud_sprite = document.createElement('div');
-            cloud_sprite.className = 'cloud_sprite';
-            cloud_sprite.style.top = cloud_posi + cloud_gap + 'vh';
-            cloud_sprite.style.left = '100vw';
-            cloud_sprite.increase_score = '1';
+            document.body.appendChild(meteor_shower_inv);
+            let meteor_shower = document.createElement('div');
+            meteor_shower.className = 'meteor_shower';
+            meteor_shower.style.top = meteor_shower_posi + meteor_shower_gap + 'vh';
+            meteor_shower.style.left = '100vw';
+            meteor_shower.increase_score = '1';
 
-            document.body.appendChild(cloud_sprite);
+            document.body.appendChild(meteor_shower);
         }
-        cloud_seperation++;
-        requestAnimationFrame(create_cloud);
+        meteor_shower_seperation++;
+        requestAnimationFrame(create_meteor_shower);
     }
-    requestAnimationFrame(create_cloud);
+    requestAnimationFrame(create_meteor_shower);
 }
 
 
